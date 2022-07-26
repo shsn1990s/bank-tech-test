@@ -39,14 +39,15 @@ describe('Account', () => {
     account.deposit(500);
     expect(() => { account.withdraw(600); }).toThrow('Insufficient Funds Available.');
   });
-  xit('creates a mock transaction instance when a deposit is made', () => {
-    jest.mock('./transaction');
-    const account = new Account();
-    const mockTransaction = new Transaction();
-    mockTransaction.type.mockImplementation(() => "credit");
-    account.deposit(200);
-    expect(account.transactionHistory[0].type).toEqual("credit");
-    // expect(account.transactionHistory[0].amount).toEqual(200);
-    // expect(account.transactionHistory[0].balance).toEqual(200);
-  });
+  // it('creates a mock transaction instance when a deposit is made', () => {
+  //   jest.mock('./transactionHistory');
+  //   const account = new Account();
+  //   const spy = jest.spyOn(TransactionHistory);
+  //   // const mockTransaction = new TransactionHistory();
+  //   // mockTransaction.type.mockImplementation(() => "credit");
+  //   // account.deposit(200);
+  //   expect(spy).toHaveBeenCalled(Times(1))
+  //   // expect(account.transactionHistory[0].amount).toEqual(200);
+  //   // expect(account.transactionHistory[0].balance).toEqual(200);
+  // });
 });
