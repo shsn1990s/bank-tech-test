@@ -4,6 +4,11 @@ class Account {
     this.transactionHistory = [];
   }
 
+  deposit (amount) {
+    this.balance += amount;
+  }
+  
+
 }
 
 module.exports = Account;
