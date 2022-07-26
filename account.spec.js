@@ -24,4 +24,12 @@ describe('Account', () => {
     expect(account.transactionHistory[0].amount).toEqual(200);
     expect(account.transactionHistory[0].balance).toEqual(200);
   });
+  it('creates an entry/new transaction instance when a withdrawal is made', () => {
+    const account = new Account();
+    account.deposit(500);
+    account.withdraw(200);
+    expect(account.transactionHistory[1].type).toEqual("debit");
+    expect(account.transactionHistory[1].amount).toEqual(200);
+    expect(account.transactionHistory[1].balance).toEqual(300);
+  });
 });
