@@ -19,7 +19,11 @@ describe('Account', () => {
     expect(account.balance).toEqual(50);
     expect(account.transactionHistory).toEqual([]);
   });
-  it('creates an entry/new transaction when a deposit is made', () => {
-    
+  it('creates an entry/new transaction instance when a deposit is made', () => {
+    const account = new Account();
+    account.deposit(100);
+    expect(account.transactionHistory[0].type).toEqual("credit");
+    expect(account.transactionHistory[0].amount).toEqual(200);
+    expect(account.transactionHistory[0].balance).toEqual(1000);
   });
 });
