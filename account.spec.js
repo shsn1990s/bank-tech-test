@@ -37,7 +37,7 @@ describe('Account', () => {
   it('prevents withdrawal if insufficent funds available', () => {
     const account = new Account();
     account.deposit(500);
-    expect(() => { account.withdraw(600); }).toThrow('Insufficent Funds Available.');
+    expect(() => { account.withdraw(600); }).toThrow('Insufficient Funds Available.');
   });
   xit('creates a mock transaction instance when a deposit is made', () => {
     jest.mock('./transaction');

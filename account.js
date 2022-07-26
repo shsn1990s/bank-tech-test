@@ -12,6 +12,7 @@ class Account {
   }
   
   withdraw (amount) {
+    if ((this.balance - amount) < 0 ) throw new Error('Insufficient Funds Available.')
     this.balance -= amount;
     this.transactionHistory.createTransaction("debit", amount, this.balance);
   }
