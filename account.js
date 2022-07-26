@@ -8,12 +8,12 @@ class Account {
 
   deposit (amount) {
     this.balance += amount;
-    this.transactionHistory.push(new Transaction("credit", amount, this.balance));
+    this.transactionHistory.createTransaction("credit", amount, this.balance);
   }
   
   withdraw (amount) {
     this.balance -= amount;
-    this.transactionHistory.push(new Transaction("debit", amount, this.balance));
+    this.transactionHistory.createTransaction("debit", amount, this.balance);
   }
 
 
