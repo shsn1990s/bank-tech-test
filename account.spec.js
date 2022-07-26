@@ -1,3 +1,5 @@
+const Account = require('./account')
+
 describe('Account', () => {
   it('creates a new account with a nil balance', () => {
     const account = new Account();
