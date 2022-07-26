@@ -19,4 +19,7 @@ describe('Account', () => {
     expect(account.balance).toEqual(50);
     expect(account.transactionHistory).toEqual([]);
   });
+  it('creates an entry/new transaction when a deposit is made', () => {
+    
+  });
 });
