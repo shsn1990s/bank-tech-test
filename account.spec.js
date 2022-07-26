@@ -1,6 +1,8 @@
 const Account = require('./account')
 const TransactionHistory = require('./transactionHistory');
 
+//jest.mock('./transactionHistory');
+
 describe('Account', () => {
   it('creates a new account with a nil balance', () => {
     const account = new Account();
@@ -17,20 +19,25 @@ describe('Account', () => {
     account.withdraw(50);
     expect(account.balance).toEqual(50);
   });
-  xit('creates an entry/new transaction instance when a deposit is made', () => {
+  it('creates an entry/new transaction instance when a deposit is made', () => {
     const account = new Account();
     account.deposit(200);
-    expect(account.transactionHistory[0].type).toEqual("credit");
-    expect(account.transactionHistory[0].amount).toEqual(200);
-    expect(account.transactionHistory[0].balance).toEqual(200);
+    expect(account.transactionHistory.transactions[0].type).toEqual("credit");
+    expect(account.transactionHistory.transactions[0].amount).toEqual(200);
+    expect(account.transactionHistory.transactions[0].balance).toEqual(200);
   });
-  xit('creates an entry/new transaction instance when a withdrawal is made', () => {
+  it('creates an entry/new transaction instance when a withdrawal is made', () => {
     const account = new Account();
     account.deposit(500);
     account.withdraw(200);
-    expect(account.transactionHistory[1].type).toEqual("debit");
-    expect(account.transactionHistory[1].amount).toEqual(200);
-    expect(account.transactionHistory[1].balance).toEqual(300);
+    expect(account.transactionHistory.transactions[1].type).toEqual("debit");
+    expect(account.transactionHistory.transactions[1].amount).toEqual(200);
+    expect(account.transactionHistory.transactions[1].balance).toEqual(300);
+  });
+  it('prevents withdrawal if insufficent funds available', () => {
+    const account = new Account();
+    account.deposit(500);
+    expect(() => { account.withdraw(600); }).toThrow('Insufficent Funds Available.');
   });
   xit('creates a mock transaction instance when a deposit is made', () => {
     jest.mock('./transaction');
