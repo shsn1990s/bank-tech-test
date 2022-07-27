@@ -52,13 +52,27 @@ I would like to print a copy of my statement displaying my current balance
 
 ### Designing the Class System
 
-The Excalidraw diagram illustrates the relationship between the three classes. The classes consists of:
+The Excalidraw diagram illustrates the relationship between the three classes. The classes have been designed with Seperation of Concern and  Single Responsibility Principle in mind. The classes consists of:
 
-1. Bank Account Class
-2. Transaction History
-3. Bank Statement
+1. Bank Account Class - To maintain record of current balance and allow user to use functions such as deposit/withdrawal and requesting for statement.
+2. Transaction History - This class will focus on maintaining a record of all transactions, it will datestamp all transactions.
+3. Bank Statement - This class is responsible for outputing the transactions and the output of the application.
 
 ## Getting Started
+
+### Installation
+
+The application has been buil on Node.js. To install Node run the command below:
+
+```
+npm install -g npm
+```
+
+Jest has been used for testing and Eslint to find and detect issues within the Javascript code. These dependencies are listed within the package.json and can therefore be installed using the command below.
+
+```
+npm install
+```
 
 ### Runing the Program
 
@@ -84,3 +98,4 @@ date || credit || debit || balance
 27/07/2022  || 100  ||  ||  100
 27/07/2022  ||  ||  50  ||  50
 ```
+![alt Program Running](http://url/to/img.png)
