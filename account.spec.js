@@ -41,19 +41,9 @@ describe('Account', () => {
   });
   it('creates a bank statement within terminal', () => {
     const account = new Account();
+    const testDate = new Date();
     account.deposit(500);
     account.withdraw(200);
-    expect(account.statement()).toEqual(`date || credit || debit || balance \n${testDate.toLocaleDateString('en-UK')}  ||  ||  500  ||  1000\n${testDate.toLocaleDateString('en-UK')}  || 1500  ||  ||  1000\n`);
+    expect(account.statement()).toEqual(`date || credit || debit || balance \n${testDate.toLocaleDateString('en-UK')}  || 500  ||  ||  500\n${testDate.toLocaleDateString('en-UK')}  ||  ||  200  ||  300\n`);
   });
-  // it('creates a mock transaction instance when a deposit is made', () => {
-  //   jest.mock('./transactionHistory');
-  //   const account = new Account();
-  //   const spy = jest.spyOn(TransactionHistory);
-  //   // const mockTransaction = new TransactionHistory();
-  //   // mockTransaction.type.mockImplementation(() => "credit");
-  //   // account.deposit(200);
-  //   expect(spy).toHaveBeenCalled(Times(1))
-  //   // expect(account.transactionHistory[0].amount).toEqual(200);
-  //   // expect(account.transactionHistory[0].balance).toEqual(200);
-  // });
 });

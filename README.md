@@ -1,13 +1,5 @@
 # Bank tech test
 
-Today, you'll practice doing a tech test.
-
-For most tech tests, you'll essentially have unlimited time.  This practice session is about producing the best code you can when there is a minimal time pressure.
-
-You'll get to practice your OO design and TDD skills.
-
-You'll work alone, and you'll also review your own code so you can practice reflecting on and improving your own work.
-
 ## Specification
 
 ### Requirements
@@ -56,4 +48,39 @@ I would like to print a copy of my statement displaying my transactions
 As a user
 So that I can view my current balance
 I would like to print a copy of my statement displaying my current balance
+```
+
+### Designing the Class System
+
+The Excalidraw diagram illustrates the relationship between the three classes. The classes consists of:
+
+1. Bank Account Class
+2. Transaction History
+3. Bank Statement
+
+## Getting Started
+
+### Runing the Program
+
+The program can be launched via Node.
+
+```
+node
+Account = require('./account')
+account = new Account()
+```
+
+Once we have instantiated an instance of the class, we can begin using the various functions, such as deposit, withdrawal and printing statement.
+
+```
+account.deposit(100)
+account.withdraw(50)
+account.statement
+```
+
+Expected Output:
+```
+date || credit || debit || balance
+27/07/2022  || 100  ||  ||  100
+27/07/2022  ||  ||  50  ||  50
 ```
