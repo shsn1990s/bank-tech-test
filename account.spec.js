@@ -1,4 +1,5 @@
 const Account = require('./account');
+const BankStatement = require('./bankStatement');
 // const TransactionHistory = require('./transactionHistory');
 
 // jest.mock('./transactionHistory');
@@ -45,5 +46,12 @@ describe('Account', () => {
     account.deposit(500);
     account.withdraw(200);
     expect(account.statement()).toEqual(`date || credit || debit || balance \n${testDate.toLocaleDateString('en-UK')}  || 500  ||  ||  500\n${testDate.toLocaleDateString('en-UK')}  ||  ||  200  ||  300\n`);
+  });
+  it('creates a mock transaction instance when a deposit is made', () => {
+   const account = new Account();
+   jest.mock('./bankStatement', () => jest.fn());
+
+   BankStatement.printStatement = jest.fn(() => { `date || credit || debit || balance \n` })
+   expect(account.statement()).toBe(`date || credit || debit || balance \n`);
   });
 });
