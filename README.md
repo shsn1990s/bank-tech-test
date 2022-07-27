@@ -98,4 +98,4 @@ date || credit || debit || balance
 27/07/2022  || 100  ||  ||  100
 27/07/2022  ||  ||  50  ||  50
 ```
-![alt Program Running](http://url/to/img.png)
+![alt Program Running](https://github.com/shsn1990s/bank-tech-test/blob/main/screenshot/Screenshot%202022-07-27.png)
