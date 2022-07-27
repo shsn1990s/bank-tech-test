@@ -1,13 +1,13 @@
-const Account = require('./account')
-const TransactionHistory = require('./transactionHistory');
+const Account = require('./account');
+// const TransactionHistory = require('./transactionHistory');
 
-//jest.mock('./transactionHistory');
+// jest.mock('./transactionHistory');
 
 describe('Account', () => {
   it('creates a new account with a nil balance', () => {
     const account = new Account();
     expect(account.balance).toEqual(0);
-  })
+  });
   it('deposits an amount, which is then reflected in balance', () => {
     const account = new Account();
     account.deposit(100);
@@ -22,7 +22,7 @@ describe('Account', () => {
   it('creates an entry/new transaction instance when a deposit is made', () => {
     const account = new Account();
     account.deposit(200);
-    expect(account.transactionHistory.transactions[0].type).toEqual("credit");
+    expect(account.transactionHistory.transactions[0].type).toEqual('credit');
     expect(account.transactionHistory.transactions[0].amount).toEqual(200);
     expect(account.transactionHistory.transactions[0].balance).toEqual(200);
   });
@@ -30,7 +30,7 @@ describe('Account', () => {
     const account = new Account();
     account.deposit(500);
     account.withdraw(200);
-    expect(account.transactionHistory.transactions[1].type).toEqual("debit");
+    expect(account.transactionHistory.transactions[1].type).toEqual('debit');
     expect(account.transactionHistory.transactions[1].amount).toEqual(200);
     expect(account.transactionHistory.transactions[1].balance).toEqual(300);
   });
@@ -38,6 +38,12 @@ describe('Account', () => {
     const account = new Account();
     account.deposit(500);
     expect(() => { account.withdraw(600); }).toThrow('Insufficient Funds Available.');
+  });
+  it('creates a bank statement within terminal', () => {
+    const account = new Account();
+    account.deposit(500);
+    account.withdraw(200);
+    expect(account.statement()).toEqual(`date || credit || debit || balance \n${testDate.toLocaleDateString('en-UK')}  ||  ||  500  ||  1000\n${testDate.toLocaleDateString('en-UK')}  || 1500  ||  ||  1000\n`);
   });
   // it('creates a mock transaction instance when a deposit is made', () => {
   //   jest.mock('./transactionHistory');

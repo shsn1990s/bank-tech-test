@@ -1,20 +1,16 @@
 class TransactionHistory {
-
-  constructor () {
-    this.transactions = []
+  constructor() {
+    this.transactions = [];
   }
 
-  createTransaction (type, amount, balance) {
+  createTransaction(type, amount, balance) {
     this.transactions.push({
       date: new Date(),
-      type: type,
-      amount: amount,
-      balance: balance
-    })
+      type,
+      amount,
+      balance,
+    });
   }
-
 }
-
-
 
 module.exports = TransactionHistory;
