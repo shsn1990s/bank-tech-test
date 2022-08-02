@@ -4,10 +4,10 @@
 
 ### Requirements
 
-* You should be able to interact with your code via a REPL like IRB or Node.  (You don't need to implement a command line interface that takes input from STDIN.)
-* Deposits, withdrawal.
-* Account statement (date, amount, balance) printing.
-* Data can be kept in memory (it doesn't need to be stored to a database or anything).
+- You should be able to interact with your code via a REPL like IRB or Node. (You don't need to implement a command line interface that takes input from STDIN.)
+- Deposits, withdrawal.
+- Account statement (date, amount, balance) printing.
+- Data can be kept in memory (it doesn't need to be stored to a database or anything).
 
 ### Acceptance criteria
 
@@ -52,7 +52,7 @@ I would like to print a copy of my statement displaying my current balance
 
 ### Designing the Class System
 
-The Excalidraw diagram illustrates the relationship between the three classes. The classes have been designed with Seperation of Concern and  Single Responsibility Principle in mind. The classes consists of:
+The Excalidraw diagram illustrates the relationship between the three classes. The classes have been designed with Seperation of Concern and Single Responsibility Principle in mind. The classes consists of:
 
 1. Bank Account Class - To maintain record of current balance and allow user to use functions such as deposit/withdrawal and requesting for statement.
 2. Transaction History - This class will focus on maintaining a record of all transactions, it will datestamp all transactions.
@@ -93,9 +93,11 @@ account.statement
 ```
 
 Expected Output:
+
 ```
 date || credit || debit || balance
 27/07/2022  || 100  ||  ||  100
 27/07/2022  ||  ||  50  ||  50
 ```
+
 ![alt Program Running](https://github.com/shsn1990s/bank-tech-test/blob/main/screenshot/Screenshot%202022-07-27.png)
